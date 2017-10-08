@@ -11,7 +11,12 @@ class MemoryValue(object):
 class Memory(object):
 
     def __init__(self):
-        self.r = 0
+        
+        self.r = MemoryValue()
+        self.gt = MemoryValue()
+        self.lt = MemoryValue()
+        self.eq = MemoryValue()
+
         self._memory_counter = 0
         self._values = {}  # type: typing.Dict[int, MemoryValue]
 

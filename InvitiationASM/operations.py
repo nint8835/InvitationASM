@@ -35,4 +35,4 @@ class LoadOperation(metaclass=Operation):
     OPCODE = 1
 
     def execute(self, arguments):
-        MEMORY.r = arguments[0]
+        MEMORY.r.value = arguments[0]
