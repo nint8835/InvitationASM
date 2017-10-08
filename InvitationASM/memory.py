@@ -1,4 +1,5 @@
 import typing
+import logging
 
 from . import parser
 
@@ -11,7 +12,9 @@ class MemoryValue(object):
 class Memory(object):
 
     def __init__(self):
-        
+
+        self.logger = logging.getLogger("Memory")
+
         self.r = MemoryValue()
         self.gt = MemoryValue()
         self.lt = MemoryValue()
@@ -21,6 +24,7 @@ class Memory(object):
         self._values = {}  # type: typing.Dict[int, MemoryValue]
 
     def get_value_at_address(self, address) -> MemoryValue:
+        self.logger.debug(f"Getting value from address {address}")
         return self._values[address]
 
     def insert_value(self, value: MemoryValue, address: int=None):
