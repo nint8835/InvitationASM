@@ -12,10 +12,18 @@ logger = logging.getLogger("Parser")
 class Statement(object):
 
     def __init__(self, operation, arguments: list):
+        """
+        Initialize a new statement object
+        :param operation: The operation occurring in this statement
+        :param arguments: The arguments for this operation
+        """
         self.operation = operation
         self.arguments = arguments
 
     def execute(self):
+        """
+        Execute the statement
+        """
         self.operation.execute(self.arguments)
 
 
@@ -28,6 +36,11 @@ class Parser(object):
                             level=log_level)
 
     def parse_line(self, line: str) -> Statement:
+        """
+        Parses a line
+        :param line: The line to parse
+        :return: The parsed line
+        """
         self.logger.debug(f"Parsing line \"{line}\"")
 
         segments = line.split(" ")
@@ -62,10 +75,20 @@ class Parser(object):
         return statement
 
     def parse_file(self, filename: str) -> List[Statement]:
+        """
+        Parses a file
+        :param filename: The file to parse
+        :return: The statements in the file
+        """
         with open(filename) as f:
             return self.parse_stream(f)
 
     def parse_stream(self, stream: io.IOBase) -> List[Statement]:
+        """
+        Parses a stream
+        :param stream: The stream to parse
+        :return: The statements in the stream
+        """
         statements = []
         lines = list(map(lambda x: x.strip(), stream.readlines()))
         for line in lines:
