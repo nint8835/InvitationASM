@@ -22,7 +22,7 @@ class Memory(object):
         self.pc = MemoryValue()
 
         self._memory_counter = 0
-        self._values = {}  # type: typing.Dict[int, MemoryValue]
+        self._values = {-1: self.r}  # type: typing.Dict[int, MemoryValue]
 
     def get_value_at_address(self, address) -> MemoryValue:
         self.logger.debug(f"Getting value from address {address}")
