@@ -8,6 +8,9 @@ class Statement(object):
         self.operation = operation
         self.arguments = arguments
 
+    def execute(self):
+        self.operation.execute(self.arguments)
+
 
 class Parser(object):
 
@@ -21,3 +24,7 @@ class Parser(object):
             raise ParserException(f"Operation {operation} undefined")
 
         arguments = "".join(segments[1:]).split(",")
+
+        op = TOKENS[operation]
+
+        return Statement(op, arguments)

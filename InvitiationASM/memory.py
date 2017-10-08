@@ -1,10 +1,11 @@
 import typing
 
+from . import parser
+
 
 class MemoryValue(object):
-    address = 0
-    operation = None
-    arguments = []
+    value = 0
+    statement = None  # type: parser.Statement
 
 
 class Memory(object):
@@ -23,3 +24,6 @@ class Memory(object):
             self._memory_counter += 1
 
         self._values[address] = value
+
+
+MEMORY = Memory()
