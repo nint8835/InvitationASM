@@ -23,8 +23,9 @@ class Memory(object):
         self.lt = MemoryValue()
         self.eq = MemoryValue()
         self.pc = MemoryValue()
+        self.pc.value = 1
 
-        self._memory_counter = 0
+        self._memory_counter = 1
         self._values = {-1: self.r}  # type: typing.Dict[int, MemoryValue]
 
     def get_value_at_address(self, address) -> MemoryValue:
