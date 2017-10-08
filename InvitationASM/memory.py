@@ -19,6 +19,7 @@ class Memory(object):
         self.gt = MemoryValue()
         self.lt = MemoryValue()
         self.eq = MemoryValue()
+        self.pc = MemoryValue()
 
         self._memory_counter = 0
         self._values = {}  # type: typing.Dict[int, MemoryValue]
@@ -33,6 +34,10 @@ class Memory(object):
             self._memory_counter += 1
 
         self._values[address] = value
+        self.logger.debug(f"Inserted value at address {address}")
+
+    def get_max_address(self) -> int:
+        return max(self._values.keys())
 
 
 MEMORY = Memory()
