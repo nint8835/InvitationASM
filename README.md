@@ -1,16 +1,20 @@
 # InvitationASM
-InvitationASM is an interpreter for the assembly-styled language that is used in "An Introduction to Computer Science" by G.Michael Schneider and Judith Gersting
+InvitationASM is an interpreter for the assembly-styled language that is used in "An Introduction to Computer Science" by G. Michael Schneider and Judith Gersting
 
 ## Usage
 ```bash
 > python ExecuteIASM.py <file.iasm>
 ```
+
 ## Syntax
 An InvitationASM program consists of a series of statements, containing a token corresponding with an operation, followed by a sequence of comma-separated integer arguments for the operation
 
-## Operations
+## Additions
+InvitationASM has several additions compared to the language used in the books. These include:
+* Several new operations (indicated with *italics* in the operations list)
+* Dual-usage memory: One location in memory can contain two values. An executable statement, and a numeric value.
 
-*Italic* operation names are custom operations not included in the book
+## Operations
 
 #### LOAD
 Usage: `LOAD A`
