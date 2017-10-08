@@ -7,7 +7,7 @@ parser = Parser()
 def load_file(filename: str):
     """
     Parses and loads a file into memory
-    
+
     :param filename: The name of the file to load
     """
     statements = parser.parse_file(filename)

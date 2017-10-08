@@ -12,6 +12,9 @@ class MemoryValue(object):
 class Memory(object):
 
     def __init__(self):
+        """
+        Initialize a new memory object
+        """
 
         self.logger = logging.getLogger("Memory")
 
@@ -25,10 +28,22 @@ class Memory(object):
         self._values = {-1: self.r}  # type: typing.Dict[int, MemoryValue]
 
     def get_value_at_address(self, address) -> MemoryValue:
+        """
+        Gets the MemoryValue object contained at a certain memory address
+
+        :param address: The address to get the value from
+        :return: The MemoryValue at that address
+        """
         self.logger.debug(f"Getting value from address {address}")
         return self._values[address]
 
     def insert_value(self, value: MemoryValue, address: int=None):
+        """
+        Inserts a MemoryValue into memory
+
+        :param value: The memory value to insert
+        :param address: The address to insert into (or None to insert at next available address)
+        """
         if address is None:
             address = self._memory_counter
             self._memory_counter += 1
