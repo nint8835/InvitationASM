@@ -11,7 +11,7 @@ class Operation(type):
             if dct["TOKEN"] not in TOKENS:
                 TOKENS[dct["TOKEN"]] = cls()
             else:
-                raise OperationDeclarationException("Operation token already in use")
+                raise OperationDeclarationException(f"Operation token {dct['TOKEN']} already in use")
         else:
             raise OperationDeclarationException("Operation must have TOKEN attribute")
 
@@ -19,7 +19,7 @@ class Operation(type):
             if dct["OPCODE"] not in OPCODES:
                 OPCODES[dct["OPCODE"]] = TOKENS[dct["TOKEN"]]
             else:
-                raise OperationDeclarationException("Operation opcode already in use")
+                raise OperationDeclarationException(f"Operation opcode {dct['OPCODE']} already in use")
         else:
             raise OperationDeclarationException("Operation must have OPCODE attribute")
 
