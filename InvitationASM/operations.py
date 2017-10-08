@@ -41,9 +41,9 @@ class CompareOperation(metaclass=Operation):
     def execute(self, arguments):
         value = MEMORY.get_value_at_address(arguments[0]).value
         r = MEMORY.r.value
-        MEMORY.gt.value = r > value
-        MEMORY.lt.value = r < value
-        MEMORY.eq.value = r == value
+        MEMORY.gt.value = int(r > value)
+        MEMORY.lt.value = int(r < value)
+        MEMORY.eq.value = int(r == value)
 
 
 class StoreOperation(metaclass=Operation):
