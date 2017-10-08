@@ -1,5 +1,5 @@
 from .exceptions import OperationDeclarationException
-from .memory import MEMORY
+from .memory import MEMORY, MemoryValue
 
 TOKENS = {}
 
@@ -44,3 +44,15 @@ class CompareOperation(metaclass=Operation):
         MEMORY.gt.value = r > value
         MEMORY.lt.value = r < value
         MEMORY.eq.value = r == value
+
+
+class StoreOperation(metaclass=Operation):
+    TOKEN = "STORE"
+
+    def execute(self, arguments):
+        try:
+            value = MEMORY.get_value_at_address(arguments[0])
+        except KeyError:
+            value = MemoryValue()
+            MEMORY.insert_value(value, arguments[0])
+        value.value = MEMORY.r.value
