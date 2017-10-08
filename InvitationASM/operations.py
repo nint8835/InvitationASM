@@ -56,3 +56,12 @@ class StoreOperation(metaclass=Operation):
             value = MemoryValue()
             MEMORY.insert_value(value, arguments[0])
         value.value = MEMORY.r.value
+
+
+class InitOperation(metaclass=Operation):
+    TOKEN = "INIT"
+
+    def execute(self, arguments):
+        value = MemoryValue()
+        value.value = arguments[1]
+        MEMORY.insert_value(value, arguments[0])
