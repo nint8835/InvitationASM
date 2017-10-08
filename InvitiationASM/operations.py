@@ -25,7 +25,7 @@ class Operation(type):
 
         if "execute" not in dct:
             raise OperationDeclarationException("Operation must declare execute method")
-    
+
         super().__init__(name, bases, dct)
 
 
