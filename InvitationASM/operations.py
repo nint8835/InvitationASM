@@ -44,3 +44,15 @@ class PrintOperation(metaclass=Operation):
 
     def execute(self, arguments):
         print(MEMORY.get_value_at_address(arguments[0]).value)
+
+
+class CompareOperation(metaclass=Operation):
+    TOKEN = "COMPARE"
+    OPCODE = 3
+
+    def execute(self, arguments):
+        value = MEMORY.get_value_at_address(arguments[0]).value
+        r = MEMORY.r.value
+        MEMORY.gt.value = r > value
+        MEMORY.lt.value = r < value
+        MEMORY.eq.value = r == value
