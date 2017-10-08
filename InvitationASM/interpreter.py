@@ -17,7 +17,10 @@ def load_file(filename: str):
 def run():
     while MEMORY.pc.value <= MEMORY.get_max_address():
         current_pc = MEMORY.pc.value
-        value = MEMORY.get_value_at_address(current_pc)
+        try:
+            value = MEMORY.get_value_at_address(current_pc)
+        except KeyError:
+            break
         value.statement.execute()
 
         if MEMORY.pc.value == current_pc:
