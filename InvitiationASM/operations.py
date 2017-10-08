@@ -1,4 +1,5 @@
 from .exceptions import OperationDeclarationException
+from .memory import MEMORY
 
 TOKENS = {}
 OPCODES = {}
@@ -29,9 +30,9 @@ class Operation(type):
         super().__init__(name, bases, dct)
 
 
-class ExampleOperation(metaclass=Operation):
-    TOKEN = "EXMP"
-    OPCODE = 48
+class LoadOperation(metaclass=Operation):
+    TOKEN = "LOAD"
+    OPCODE = 1
 
-    def execute(self, args):
-        pass
+    def execute(self, arguments):
+        MEMORY.r = arguments[0]

@@ -1,3 +1,5 @@
+from typing import List
+
 from .exceptions import ParserException
 from .operations import TOKENS
 
@@ -28,3 +30,11 @@ class Parser(object):
         op = TOKENS[operation]
 
         return Statement(op, arguments)
+
+    def parse_file(self, filename: str) -> List[Statement]:
+        statements = []
+        with open(filename) as f:
+            for line in f:
+                statements.append(self.parse_line(line))
+
+        return statements
