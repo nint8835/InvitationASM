@@ -25,7 +25,7 @@ class LoadOperation(metaclass=Operation):
     TOKEN = "LOAD"
 
     def execute(self, arguments):
-        MEMORY.r.value = arguments[0]
+        MEMORY.r.value = MEMORY.get_value_at_address(arguments[0]).value
 
 
 class PrintOperation(metaclass=Operation):
