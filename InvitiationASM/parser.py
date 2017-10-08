@@ -1,4 +1,6 @@
 from typing import List
+import ast
+import io
 
 from .exceptions import ParserException
 from .operations import TOKENS
@@ -25,16 +27,24 @@ class Parser(object):
         if operation not in TOKENS:
             raise ParserException(f"Operation {operation} undefined")
 
-        arguments = "".join(segments[1:]).split(",")
+        argument_list = "".join(segments[1:]).split(",")
+        arguments = list(map(ast.literal_eval, argument_list))
+        for argument in arguments:
+            if not isinstance(argument, int):
+                raise ParserException(f"Statement arguments must be int, not {type(argument)}")
 
         op = TOKENS[operation]
 
         return Statement(op, arguments)
 
     def parse_file(self, filename: str) -> List[Statement]:
-        statements = []
         with open(filename) as f:
-            for line in f:
-                statements.append(self.parse_line(line))
+            return self.parse_stream(f)
+
+    def parse_stream(self, stream: io.IOBase) -> List[Statement]:
+        statements = []
+        lines = list(map(lambda x: x.strip(), stream.readlines()))
+        for line in lines:
+            statements.append(self.parse_line(line))
 
         return statements
