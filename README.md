@@ -1,6 +1,9 @@
 # InvitationASM
 InvitationASM is an interpreter for the assembly-styled language that is used in "An Introduction to Computer Science" by G. Michael Schneider and Judith Gersting
 
+## Requirements
+Python 3.6 or later
+
 ## Usage
 ```bash
 > python ExecuteIASM.py <file.iasm>
