@@ -116,3 +116,13 @@ Jumps to address A if the last COMPARE operation set LT = 1
 Usage: `JUMPGT A`
 
 Jumps to address A if the last COMPARE operation set GT = 1
+
+#### JUMPEQ
+Usage: `JUMPEQ A`
+
+Jumps to address A if the last COMPARE operation set EQ = 1
+
+#### JUMPNEQ
+Usage: `JUMPNEQ A`
+
+Jumps to address A if the last COMPARE operation set EQ = 0

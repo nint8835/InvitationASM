@@ -157,3 +157,19 @@ class JumpLTOperation(metaclass=Operation):
     def execute(self, arguments):
         if MEMORY.lt.value == 1:
             MEMORY.pc.value = arguments[0]
+
+
+class JumpEQOperation(metaclass=Operation):
+    TOKEN = "JUMPEQ"
+
+    def execute(self, arguments):
+        if MEMORY.eq.value == 1:
+            MEMORY.pc.value = arguments[0]
+
+
+class JumpNEQOperation(metaclass=Operation):
+    TOKEN = "JUMPNEQ"
+
+    def execute(self, arguments):
+        if MEMORY.eq.value == 0:
+            MEMORY.pc.value = arguments[0]
