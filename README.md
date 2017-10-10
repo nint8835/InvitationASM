@@ -10,7 +10,7 @@ Python 3.6 or later
 ```
 
 ## Syntax
-An InvitationASM program consists of a series of statements, containing a token corresponding with an operation, followed by a sequence of zero or more comma-separated integer arguments for the operation
+An InvitationASM program consists of a series of statements, containing a token corresponding with an operation, followed by a sequence of zero or more comma-separated integer arguments for the operation. Comments are denoted by starting a line with #.
 
 ## Additions
 InvitationASM has several additions compared to the language used in the books. These include:
