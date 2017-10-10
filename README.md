@@ -147,3 +147,8 @@ Jumps to address A if the last COMPARE operation set EQ = 0.
 Usage: `IN A`
 
 Reads from standard in and sets the value at A equal to what was read.
+
+#### *ANCHOR*
+Usage: `ANCHOR A`
+
+Begins inserting new instructions from memory address A.

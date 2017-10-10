@@ -196,3 +196,12 @@ class InOperation(metaclass=Operation):
 
     def execute(self, arguments):
         MEMORY.set_value(int(input("Value: ")), arguments[0])
+
+
+class AnchorOperation(metaclass=Operation):
+    TOKEN = "ANCHOR"
+
+    def execute(self, arguments):
+        # Handling of this operation occurs in the
+        # interpreter during the loading stage
+        pass

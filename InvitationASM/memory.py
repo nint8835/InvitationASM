@@ -25,7 +25,7 @@ class Memory(object):
         self.pc = MemoryValue()
         self.pc.value = 1
 
-        self._memory_counter = 1
+        self.memory_counter = 1
         self._values = {-1: self.r}  # type: typing.Dict[int, MemoryValue]
 
     def get_value_at_address(self, address) -> MemoryValue:
@@ -46,8 +46,8 @@ class Memory(object):
         :param address: The address to insert into (or None to insert at next available address)
         """
         if address is None:
-            address = self._memory_counter
-            self._memory_counter += 1
+            address = self.memory_counter
+            self.memory_counter += 1
 
         self._values[address] = value
         self.logger.debug(f"Inserted value at address {address}")

@@ -17,35 +17,41 @@ IN 106
 
 # Check for addition
 COMPARE 100
-JUMPEQ 16
+JUMPEQ 20
 
 # Check for subtraction
 COMPARE 101
-JUMPEQ 18
+JUMPEQ 30
 
 # Check for multiplication
 COMPARE 102
-JUMPEQ 20
+JUMPEQ 40
 
 # Check for division
 COMPARE 103
-JUMPEQ 22
+JUMPEQ 50
 
 # Perform addition
+ANCHOR 20
 ADD 105, 106, 107
-JUMP 24
+JUMP 100
 
 # Perform subtraction
+ANCHOR 30
 SUBTRACT 105, 106, 107
-JUMP 24
+JUMP 100
 
 # Perform multiplication
+ANCHOR 40
 MULTIPLY 105, 106, 107
-JUMP 24
+JUMP 100
 
 # Perform division
+ANCHOR 50
 DIVIDE 105, 106, 107
-JUMP 24
+JUMP 100
 
 # Output result
+ANCHOR 100
 OUT 107
+HALT
