@@ -31,9 +31,9 @@ Usage: `OUT A`
 Prints the value contained in memory address A to stdout.
 
 #### COMPARE
-Usage: `COMPARE A, B`
+Usage: `COMPARE A`
 
-Compares the value contained in memory address A to the value in memory address B.
+Compares the value contained in memory address A to the value in the register.
 Sets the values required for JUMPGT, JUMPEQ, and JUMPLT.
 
 #### STORE

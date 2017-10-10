@@ -1,0 +1,47 @@
+# Define mode constants
+# Addition entry value
+INIT 100, 0
+# Subtraction entry value
+INIT 101, 1
+# Multiplication entry value
+INIT 102, 2
+# Division entry value
+INIT 103, 3
+
+# Get the mode
+IN -1
+# Get value 1
+IN 105
+# Get value 2
+IN 106
+
+# Check for addition
+COMPARE 100
+JUMPEQ 16
+
+# Check for subtraction
+COMPARE 101
+JUMPEQ 18
+
+# Check for multiplication
+COMPARE 102
+JUMPEQ 20
+
+# Check for division
+COMPARE 103
+JUMPEQ 22
+
+
+ADD 105, 106, 107
+JUMP 24
+
+SUBTRACT 105, 106, 107
+JUMP 24
+
+MULTIPLY 105, 106, 107
+JUMP 24
+
+DIVIDE 105, 106, 107
+JUMP 24
+
+OUT 107

@@ -40,7 +40,7 @@ class CompareOperation(metaclass=Operation):
 
     def execute(self, arguments):
         value1 = MEMORY.get_value_at_address(arguments[0]).value
-        value2 = MEMORY.get_value_at_address(arguments[1]).value
+        value2 = MEMORY.r.value
         MEMORY.gt.value = int(value1 > value2)
         MEMORY.lt.value = int(value1 < value2)
         MEMORY.eq.value = int(value1 == value2)
