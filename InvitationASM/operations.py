@@ -128,3 +128,10 @@ class HaltOperation(metaclass=Operation):
 
     def execute(self, arguments):
         MEMORY.pc.value = MEMORY.get_max_address() + 1
+
+
+class ClearOperation(metaclass=Operation):
+    TOKEN = "CLEAR"
+
+    def execute(self, arguments):
+        MEMORY.set_value(0, arguments[0])

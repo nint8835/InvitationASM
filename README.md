@@ -91,3 +91,8 @@ Divides the value stored at A by the value stored at B, and stores it at C
 Usage: `HALT`
 
 Halts execution of the program.
+
+#### CLEAR
+Usage: `CLEAR A`
+
+Clears the value of address A
