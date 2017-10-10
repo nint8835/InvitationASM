@@ -1,15 +1,16 @@
+import logging
+
 from .parser import Parser
 from .memory import MemoryValue, MEMORY
 
-parser = Parser()
 
-
-def load_file(filename: str):
+def load_file(filename: str, log_level: int = logging.WARNING):
     """
     Parses and loads a file into memory
 
     :param filename: The name of the file to load
     """
+    parser = Parser(log_level)
     statements = parser.parse_file(filename)
 
     for statement in statements:
