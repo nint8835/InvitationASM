@@ -61,7 +61,7 @@ Usage: `ADD A, B, C`
 
 Adds the value contained at memory address A to the value stored at memory address B, and stores it at address C.
 
-#### MULTIPLY
+#### *MULTIPLY*
 Usage: `MULTIPLY A`
 
 Multiplies the value in the register by the value stored at A.
@@ -74,7 +74,7 @@ Usage: `MULTIPLY A, B, C`
 
 Multiplies the value stored at A by the value stored at B, and stores it at C.
 
-#### DIVIDE
+#### *DIVIDE*
 Usage: `DIVIDE A`
 
 Divides the value in the register by the value stored at A.
