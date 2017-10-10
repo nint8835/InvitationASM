@@ -61,7 +61,7 @@ class Memory(object):
         """
         if address not in self._values:
             cell = MemoryValue()
-            self.insert_value(value, address)
+            self.insert_value(cell, address)
         else:
             cell = self.get_value_at_address(address)
         cell.value = value
