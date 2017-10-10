@@ -17,6 +17,7 @@ InvitationASM has several additions compared to the language used in the books. 
 * Several new operations (indicated with *italics* in the operations list)
 * Dual-usage memory: One location in memory can contain two values. An executable statement, and a numeric value.
 * Register address: The register has been given a memory address of -1, allowing you to use it for operations that normally work with a memory address
+* Statement anchoring: No more re-counting and re-writing jumps every time you add a line somewhere. Just drop an ANCHOR before the statement and rest assured knowing that statement will always be at that memory address.
 
 ## Operations
 
