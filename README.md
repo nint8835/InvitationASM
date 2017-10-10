@@ -28,13 +28,10 @@ Usage: `PRINT A`
 Prints the value contained in memory address A to stdout.
 
 #### COMPARE
-Usage: `COMPARE A`
+Usage: `COMPARE A, B`
 
-Compares the value contained in memory address A to the value in the register.
-Sets MEMORY.gt to 1 if the value in the register is greater than the value in A.
-Sets MEMORY.lt to 1 if the value in the register is less than the value in A.
-Sets MEMORY.eq to 1 if the value in the register equals the value in A.
-Used to set the values used by JUMPGT, JUMPEQ, and JUMPLT
+Compares the value contained in memory address A to the value in memory address B.
+Sets the values required for JUMPGT, JUMPEQ, and JUMPLT.
 
 #### STORE
 Usage: `STORE A`
@@ -59,4 +56,4 @@ Adds the value contained at memory address A to the value in the register.
 #### *MULTIPLY*
 Usage: `MULTIPLY A`
 
-Multiplies the register by the value contained at memory address A .
+Multiplies the register by the value contained at memory address A.

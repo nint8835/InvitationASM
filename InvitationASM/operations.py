@@ -39,11 +39,11 @@ class CompareOperation(metaclass=Operation):
     TOKEN = "COMPARE"
 
     def execute(self, arguments):
-        value = MEMORY.get_value_at_address(arguments[0]).value
-        r = MEMORY.r.value
-        MEMORY.gt.value = int(r > value)
-        MEMORY.lt.value = int(r < value)
-        MEMORY.eq.value = int(r == value)
+        value1 = MEMORY.get_value_at_address(arguments[0]).value
+        value2 = MEMORY.get_value_at_address(arguments[1]).value
+        MEMORY.gt.value = int(value1 > value2)
+        MEMORY.lt.value = int(value1 < value2)
+        MEMORY.eq.value = int(value1 == value2)
 
 
 class StoreOperation(metaclass=Operation):
@@ -88,3 +88,11 @@ class MultiplyOperation(metaclass=Operation):
     def execute(self, arguments):
         value = MEMORY.get_value_at_address(arguments[0]).value
         MEMORY.r.value *= value
+
+
+class JumpGTOperation(metaclass=Operation):
+    TOKEN = "JUMPGT"
+
+    def execute(self, arguments):
+        if MEMORY.gt.value == 1:
+            MEMORY.pc.value = arguments[0]
