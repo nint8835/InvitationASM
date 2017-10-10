@@ -55,3 +55,8 @@ Jumps to the statement contained at memory address A.
 Usage: `ADD A`
 
 Adds the value contained at memory address A to the value in the register.
+
+#### *MULTIPLY*
+Usage: `MULTIPLY A`
+
+Multiplies the register by the value contained at memory address A .

@@ -80,3 +80,11 @@ class AddOperation(metaclass=Operation):
     def execute(self, arguments):
         value = MEMORY.get_value_at_address(arguments[0]).value
         MEMORY.r.value += value
+
+
+class MultiplyOperation(metaclass=Operation):
+    TOKEN = "MULTIPLY"
+
+    def execute(self, arguments):
+        value = MEMORY.get_value_at_address(arguments[0]).value
+        MEMORY.r.value *= value
