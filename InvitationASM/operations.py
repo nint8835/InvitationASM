@@ -149,3 +149,11 @@ class DecrementOperation(metaclass=Operation):
 
     def execute(self, arguments):
         MEMORY.set_value(MEMORY.get_value(arguments[0]) - 1, arguments[0])
+
+
+class JumpLTOperation(metaclass=Operation):
+    TOKEN = "JUMPLT"
+
+    def execute(self, arguments):
+        if MEMORY.lt.value == 1:
+            MEMORY.pc.value = arguments[0]

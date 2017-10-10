@@ -106,3 +106,13 @@ Increments the value of address A by 1.
 Usage: `DECREMENT A`
 
 Decrements the value of address A by 1.
+
+#### JUMPLT
+Usage: `JUMPLT A`
+
+Jumps to address A if the last COMPARE operation set LT = 1
+
+#### JUMPGT
+Usage: `JUMPGT A`
+
+Jumps to address A if the last COMPARE operation set GT = 1
