@@ -173,3 +173,10 @@ class JumpNEQOperation(metaclass=Operation):
     def execute(self, arguments):
         if MEMORY.eq.value == 0:
             MEMORY.pc.value = arguments[0]
+
+
+class InOperation(metaclass=Operation):
+    TOKEN = "IN"
+
+    def execute(self, arguments):
+        MEMORY.set_value(int(input("Value: ")), arguments[0])

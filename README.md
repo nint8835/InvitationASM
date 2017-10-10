@@ -110,19 +110,24 @@ Decrements the value of address A by 1.
 #### JUMPLT
 Usage: `JUMPLT A`
 
-Jumps to address A if the last COMPARE operation set LT = 1
+Jumps to address A if the last COMPARE operation set LT = 1.
 
 #### JUMPGT
 Usage: `JUMPGT A`
 
-Jumps to address A if the last COMPARE operation set GT = 1
+Jumps to address A if the last COMPARE operation set GT = 1.
 
 #### JUMPEQ
 Usage: `JUMPEQ A`
 
-Jumps to address A if the last COMPARE operation set EQ = 1
+Jumps to address A if the last COMPARE operation set EQ = 1.
 
 #### JUMPNEQ
 Usage: `JUMPNEQ A`
 
-Jumps to address A if the last COMPARE operation set EQ = 0
+Jumps to address A if the last COMPARE operation set EQ = 0.
+
+#### IN
+Usage: `IN A`
+
+Reads from standard in and sets the value at A equal to what was read.
