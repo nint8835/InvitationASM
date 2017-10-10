@@ -52,6 +52,20 @@ class Memory(object):
         self._values[address] = value
         self.logger.debug(f"Inserted value at address {address}")
 
+    def set_value(self, value: int, address: int):
+        """
+        Sets the value of a memory location
+
+        :param value: The value for it to be set to
+        :param address: The location to set the value of
+        """
+        if address not in self._values:
+            value = MemoryValue()
+            self.insert_value(value, address)
+        else:
+            value = self.get_value_at_address(address)
+        value.value = value
+
     def get_max_address(self) -> int:
         return max(self._values.keys())
 

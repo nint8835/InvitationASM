@@ -50,12 +50,7 @@ class StoreOperation(metaclass=Operation):
     TOKEN = "STORE"
 
     def execute(self, arguments):
-        try:
-            value = MEMORY.get_value_at_address(arguments[0])
-        except KeyError:
-            value = MemoryValue()
-            MEMORY.insert_value(value, arguments[0])
-        value.value = MEMORY.r.value
+        MEMORY.set_value(arguments[0], MEMORY.r.value)
 
 
 class InitOperation(metaclass=Operation):
@@ -78,16 +73,32 @@ class AddOperation(metaclass=Operation):
     TOKEN = "ADD"
 
     def execute(self, arguments):
-        value = MEMORY.get_value_at_address(arguments[0]).value
-        MEMORY.r.value += value
+        if len(arguments) == 1:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.r.value += value
+        elif len(arguments) == 2:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.get_value_at_address(arguments[1]).value += value
+        elif len(arguments) == 3:
+            value1 = MEMORY.get_value_at_address(arguments[0]).value
+            value2 = MEMORY.get_value_at_address(arguments[1]).value
+            MEMORY.set_value(value1 + value2, arguments[2])
 
 
 class MultiplyOperation(metaclass=Operation):
     TOKEN = "MULTIPLY"
 
     def execute(self, arguments):
-        value = MEMORY.get_value_at_address(arguments[0]).value
-        MEMORY.r.value *= value
+        if len(arguments) == 1:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.r.value *= value
+        elif len(arguments) == 2:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.get_value_at_address(arguments[1]).value *= value
+        elif len(arguments) == 3:
+            value1 = MEMORY.get_value_at_address(arguments[0]).value
+            value2 = MEMORY.get_value_at_address(arguments[1]).value
+            MEMORY.set_value(value1 * value2, arguments[2])
 
 
 class JumpGTOperation(metaclass=Operation):

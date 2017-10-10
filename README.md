@@ -53,7 +53,23 @@ Usage: `ADD A`
 
 Adds the value contained at memory address A to the value in the register.
 
+Usage: `ADD A, B`
+
+Adds the value contained at memory address A to the value stored at memory address B, and stores it back at address B
+
+Usage: `ADD A, B, C`
+
+Adds the value contained at memory address A to the value stored at memory address B, and stores it at address C
+
 #### *MULTIPLY*
 Usage: `MULTIPLY A`
 
-Multiplies the register by the value contained at memory address A.
+Multiplies the value in the register by the value stored at A
+
+Usage: `MULTIPLY A, B`
+
+Multiplies the value stored at B by the value stored at A, and stores it back at B
+
+Usage: `MULTIPLY A, B, C`
+
+Multiplies the value stored at A by the value stored at B, and stores it at C
