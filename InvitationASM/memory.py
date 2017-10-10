@@ -66,6 +66,20 @@ class Memory(object):
             cell = self.get_value_at_address(address)
         cell.value = value
 
+    def get_value(self, address: int) -> int:
+        """
+        Gets the value of a memory location
+
+        :param address: The address to get the value of
+        :return: The value at that address
+        """
+
+        if address not in self._values:
+            self.insert_value(MemoryValue(), address)
+            return 0
+        else:
+            return self.get_value_at_address(address).value
+
     def get_max_address(self) -> int:
         return max(self._values.keys())
 

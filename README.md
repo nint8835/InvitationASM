@@ -7,7 +7,7 @@ InvitationASM is an interpreter for the assembly-styled language that is used in
 ```
 
 ## Syntax
-An InvitationASM program consists of a series of statements, containing a token corresponding with an operation, followed by a sequence of comma-separated integer arguments for the operation
+An InvitationASM program consists of a series of statements, containing a token corresponding with an operation, followed by a sequence of zero or more comma-separated integer arguments for the operation
 
 ## Additions
 InvitationASM has several additions compared to the language used in the books. These include:
@@ -22,8 +22,8 @@ Usage: `LOAD A`
 
 Loads the value contained in memory address A into the register.
 
-#### *PRINT*
-Usage: `PRINT A`
+#### OUT
+Usage: `OUT A`
 
 Prints the value contained in memory address A to stdout.
 
@@ -61,7 +61,7 @@ Usage: `ADD A, B, C`
 
 Adds the value contained at memory address A to the value stored at memory address B, and stores it at address C
 
-#### *MULTIPLY*
+#### MULTIPLY
 Usage: `MULTIPLY A`
 
 Multiplies the value in the register by the value stored at A
@@ -73,3 +73,21 @@ Multiplies the value stored at B by the value stored at A, and stores it back at
 Usage: `MULTIPLY A, B, C`
 
 Multiplies the value stored at A by the value stored at B, and stores it at C
+
+#### DIVIDE
+Usage: `DIVIDE A`
+
+Divides the value in the register by the value stored at A
+
+Usage: `DIVIDE A, B`
+
+Divides the value stored at B by the value stored at A, and stores it back at B
+
+Usage: `DIVIDE A, B, C`
+
+Divides the value stored at A by the value stored at B, and stores it at C
+
+#### HALT
+Usage: `HALT`
+
+Halts execution of the program.

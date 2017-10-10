@@ -28,11 +28,11 @@ class LoadOperation(metaclass=Operation):
         MEMORY.r.value = MEMORY.get_value_at_address(arguments[0]).value
 
 
-class PrintOperation(metaclass=Operation):
-    TOKEN = "PRINT"
+class OutOperation(metaclass=Operation):
+    TOKEN = "OUT"
 
     def execute(self, arguments):
-        print(f"{arguments[0]} -> {MEMORY.get_value_at_address(arguments[0]).value}")
+        print(f"{arguments[0]} -> {MEMORY.get_value_at_address(arguments[0])}")
 
 
 class CompareOperation(metaclass=Operation):
@@ -99,9 +99,32 @@ class MultiplyOperation(metaclass=Operation):
             MEMORY.set_value(value1 * value2, arguments[2])
 
 
+class DivideOperation(metaclass=Operation):
+    TOKEN = "DIVIDE"
+
+    def execute(self, arguments):
+        if len(arguments) == 1:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.r.value /= value
+        elif len(arguments) == 2:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.get_value_at_address(arguments[1]).value /= value
+        elif len(arguments) == 3:
+            value1 = MEMORY.get_value_at_address(arguments[0]).value
+            value2 = MEMORY.get_value_at_address(arguments[1]).value
+            MEMORY.set_value(value1 / value2, arguments[2])
+
+
 class JumpGTOperation(metaclass=Operation):
     TOKEN = "JUMPGT"
 
     def execute(self, arguments):
         if MEMORY.gt.value == 1:
             MEMORY.pc.value = arguments[0]
+
+
+class HaltOperation(metaclass=Operation):
+    TOKEN = "HALT"
+
+    def execute(self, arguments):
+        MEMORY.pc.value = MEMORY.get_max_address() + 1

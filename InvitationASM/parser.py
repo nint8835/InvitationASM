@@ -43,9 +43,10 @@ class Parser(object):
         """
         self.logger.debug(f"Parsing line \"{line}\"")
 
+        if line.strip() == "":
+            return
+
         segments = line.split(" ")
-        if len(segments) < 2:
-            raise ParserException(f"Statement must consist of 2 parts, not {len(segments)}")
 
         operation = segments[0]
         self.logger.debug(f"    Operation: {operation}")
@@ -53,18 +54,21 @@ class Parser(object):
         if operation not in TOKENS:
             raise ParserException(f"Operation {operation} undefined")
 
-        argument_list = "".join(segments[1:]).split(",")
-        self.logger.debug(f"    Arguments: {argument_list}")
-        arguments = []
-        for argument in argument_list:
-            try:
-                arg = ast.literal_eval(argument)
-                if not isinstance(arg, int):
-                    raise ValueError()
-                else:
-                    arguments.append(arg)
-            except ValueError:
-                raise ParserException(f"Invalid type for argument {argument}")
+        if len(segments) == 1:
+            arguments = []
+        else:
+            argument_list = "".join(segments[1:]).split(",")
+            self.logger.debug(f"    Arguments: {argument_list}")
+            arguments = []
+            for argument in argument_list:
+                try:
+                    arg = ast.literal_eval(argument)
+                    if not isinstance(arg, int):
+                        raise ValueError()
+                    else:
+                        arguments.append(arg)
+                except ValueError:
+                    raise ParserException(f"Invalid type for argument {argument}")
 
         op = TOKENS[operation]
 
@@ -92,6 +96,8 @@ class Parser(object):
         statements = []
         lines = list(map(lambda x: x.strip(), stream.readlines()))
         for line in lines:
-            statements.append(self.parse_line(line))
+            statement = self.parse_line(line)
+            if statement is not None:
+                statements.append(statement)
 
         return statements
