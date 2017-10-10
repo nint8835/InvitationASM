@@ -57,9 +57,7 @@ class InitOperation(metaclass=Operation):
     TOKEN = "INIT"
 
     def execute(self, arguments):
-        value = MemoryValue()
-        value.value = arguments[1]
-        MEMORY.insert_value(value, arguments[0])
+        MEMORY.set_value(arguments[1], arguments[0])
 
 
 class JumpOperation(metaclass=Operation):

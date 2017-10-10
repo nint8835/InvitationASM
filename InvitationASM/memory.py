@@ -60,11 +60,11 @@ class Memory(object):
         :param address: The location to set the value of
         """
         if address not in self._values:
-            value = MemoryValue()
+            cell = MemoryValue()
             self.insert_value(value, address)
         else:
-            value = self.get_value_at_address(address)
-        value.value = value
+            cell = self.get_value_at_address(address)
+        cell.value = value
 
     def get_max_address(self) -> int:
         return max(self._values.keys())
