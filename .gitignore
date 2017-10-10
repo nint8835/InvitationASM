@@ -102,3 +102,4 @@ ENV/
 
 # local testing files
 test.py
+testing/
