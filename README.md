@@ -25,7 +25,7 @@ Loads the value contained in memory address A into the register.
 #### *PRINT*
 Usage: `PRINT A`
 
-Prints the value contained in memory address A to stdout
+Prints the value contained in memory address A to stdout.
 
 #### COMPARE
 Usage: `COMPARE A`
@@ -39,14 +39,19 @@ Used to set the values used by JUMPGT, JUMPEQ, and JUMPLT
 #### STORE
 Usage: `STORE A`
 
-Stores the value contained in the register in memory address A
+Stores the value contained in the register in memory address A.
 
 #### *INIT*
 Usage: `INIT A, B`
 
-Initializes memory address A with value B
+Initializes memory address A with value B.
 
 #### JUMP
 Usage: `JUMP A`
 
-Jumps to the statement contained at memory address A
+Jumps to the statement contained at memory address A.
+
+#### ADD
+Usage: `ADD A`
+
+Adds the value contained at memory address A to the value in the register.

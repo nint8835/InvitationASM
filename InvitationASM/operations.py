@@ -72,3 +72,11 @@ class JumpOperation(metaclass=Operation):
 
     def execute(self, arguments):
         MEMORY.pc.value = arguments[0]
+
+
+class AddOperation(metaclass=Operation):
+    TOKEN = "ADD"
+
+    def execute(self, arguments):
+        value = MEMORY.get_value_at_address(arguments[0]).value
+        MEMORY.r.value += value
