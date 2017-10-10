@@ -43,7 +43,7 @@ class Parser(object):
         """
         self.logger.debug(f"Parsing line \"{line}\"")
 
-        if line.strip() == "":
+        if line.strip() == "" or line.startswith("#"):
             return
 
         segments = line.split(" ")

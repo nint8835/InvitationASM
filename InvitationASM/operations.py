@@ -32,7 +32,7 @@ class OutOperation(metaclass=Operation):
     TOKEN = "OUT"
 
     def execute(self, arguments):
-        print(f"{arguments[0]} -> {MEMORY.get_value_at_address(arguments[0])}")
+        print(f"{arguments[0]} -> {MEMORY.get_value_at_address(arguments[0]).value}")
 
 
 class CompareOperation(metaclass=Operation):
