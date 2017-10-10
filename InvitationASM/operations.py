@@ -83,6 +83,22 @@ class AddOperation(metaclass=Operation):
             MEMORY.set_value(value1 + value2, arguments[2])
 
 
+class SubtractOperation(metaclass=Operation):
+    TOKEN = "SUBTRACT"
+
+    def execute(self, arguments):
+        if len(arguments) == 1:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.r.value -= value
+        elif len(arguments) == 2:
+            value = MEMORY.get_value_at_address(arguments[0]).value
+            MEMORY.get_value_at_address(arguments[1]).value -= value
+        elif len(arguments) == 3:
+            value1 = MEMORY.get_value_at_address(arguments[0]).value
+            value2 = MEMORY.get_value_at_address(arguments[1]).value
+            MEMORY.set_value(value1 - value2, arguments[2])
+
+
 class MultiplyOperation(metaclass=Operation):
     TOKEN = "MULTIPLY"
 

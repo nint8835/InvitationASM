@@ -61,6 +61,19 @@ Usage: `ADD A, B, C`
 
 Adds the value contained at memory address A to the value stored at memory address B, and stores it at address C.
 
+#### SUBTRACT
+Usage: `SUBTRACT A`
+
+Subtracts the value contained at memory address A from the value in the register.
+
+Usage: `SUBTRACT A, B`
+
+Subtracts the value contained at memory address A from the value stored at memory address B, and stores it back at address B.
+
+Usage: `SUBTRACT A, B, C`
+
+Subtracts the value contained at memory address A from the value stored at memory address B, and stores it at address C.
+
 #### *MULTIPLY*
 Usage: `MULTIPLY A`
 
