@@ -202,6 +202,5 @@ class AnchorOperation(metaclass=Operation):
     TOKEN = "ANCHOR"
 
     def execute(self, arguments):
-        # Handling of this operation occurs in the
-        # interpreter during the loading stage
+        # Handling of this operation occurs in the interpreter during the loading stage
         pass
