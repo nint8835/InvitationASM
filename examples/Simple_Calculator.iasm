@@ -8,7 +8,7 @@ INIT 102, 2
 # Division entry value
 INIT 103, 3
 
-# Get the mode
+# Get the mode, store it in the register
 IN -1
 # Get value 1
 IN 105
@@ -31,17 +31,21 @@ JUMPEQ 20
 COMPARE 103
 JUMPEQ 22
 
-
+# Perform addition
 ADD 105, 106, 107
 JUMP 24
 
+# Perform subtraction
 SUBTRACT 105, 106, 107
 JUMP 24
 
+# Perform multiplication
 MULTIPLY 105, 106, 107
 JUMP 24
 
+# Perform division
 DIVIDE 105, 106, 107
 JUMP 24
 
+# Output result
 OUT 107
