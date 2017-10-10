@@ -95,4 +95,14 @@ Halts execution of the program.
 #### CLEAR
 Usage: `CLEAR A`
 
-Clears the value of address A
+Clears the value of address A.
+
+#### INCREMENT
+Usage: `INCREMENT A`
+
+Increments the value of address A by 1.
+
+#### DECREMENT
+Usage: `DECREMENT A`
+
+Decrements the value of address A by 1.

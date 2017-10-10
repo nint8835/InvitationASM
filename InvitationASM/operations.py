@@ -135,3 +135,17 @@ class ClearOperation(metaclass=Operation):
 
     def execute(self, arguments):
         MEMORY.set_value(0, arguments[0])
+
+
+class IncrementOperation(metaclass=Operation):
+    TOKEN = "INCREMENT"
+
+    def execute(self, arguments):
+        MEMORY.set_value(MEMORY.get_value(arguments[0]) + 1, arguments[0])
+
+
+class DecrementOperation(metaclass=Operation):
+    TOKEN = "DECREMENT"
+
+    def execute(self, arguments):
+        MEMORY.set_value(MEMORY.get_value(arguments[0]) - 1, arguments[0])
