@@ -1,12 +1,12 @@
 # Define mode constants
 # Addition entry value
-INIT 100, 0
+INIT 100, 1
 # Subtraction entry value
-INIT 101, 1
+INIT 101, 2
 # Multiplication entry value
-INIT 102, 2
+INIT 102, 3
 # Division entry value
-INIT 103, 3
+INIT 103, 4
 
 # Get the mode, store it in the register
 IN -1
