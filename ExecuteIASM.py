@@ -1,16 +1,22 @@
-import sys
 import logging
+import argparse
 
 from InvitationASM.interpreter import load_file, run
 
-args = sys.argv
 
-if len(args) < 2:
-    print("Usage: python ExecuteIASM.py <file.iasm>")
+parser = argparse.ArgumentParser(description="Execute an InvitationASM program.")
+parser.add_argument("-e", action="store_true", dest="extensions_enabled", help="enable InvitationASM extensions", default=False)
+parser.add_argument("-v", action="store_true", dest="verbose_enabled", help="enable debug output", default=False)
+parser.add_argument("filename", help="path to the file to run")
+args = parser.parse_args()
 
-filename = args[1]
-if "-v" in args:
-    load_file(filename, logging.DEBUG)
+if args.extensions_enabled:
+    from extensions import *
+
+if args.verbose_enabled:
+    loglevel = logging.DEBUG
 else:
-    load_file(filename)
+    loglevel = logging.WARNING
+
+load_file(args.filename, loglevel)
 run()
