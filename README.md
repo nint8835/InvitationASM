@@ -163,3 +163,11 @@ Begins inserting new instructions from memory address A.
 Usage: `UOUT *`
 
 Converts arguments from character codes to characters, and prints them to standard out.
+
+### selective_jump
+
+#### SJUMP
+Usage: `SJUMP A, *`
+
+Takes in a memory address, followed by a pair of a value followed by a memory address.
+Compares the value in address A to the given values, and jumps to the corresponding memory address.
