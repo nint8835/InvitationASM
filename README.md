@@ -154,3 +154,12 @@ Reads from standard in and sets the value at A equal to what was read.
 Usage: `ANCHOR A`
 
 Begins inserting new instructions from memory address A.
+
+## Extensions
+
+### unicode_out
+
+#### UOUT
+Usage: `UOUT *`
+
+Converts arguments from character codes to characters, and prints them to standard out.
