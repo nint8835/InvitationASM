@@ -169,5 +169,5 @@ Converts arguments from character codes to characters, and prints them to standa
 #### SJUMP
 Usage: `SJUMP A, *`
 
-Takes in a memory address, followed by a pair of a value followed by a memory address.
+Takes in a memory address, followed by pairs of a value followed by a memory address.
 Compares the value in address A to the given values, and jumps to the corresponding memory address.
