@@ -50,7 +50,7 @@ class StoreOperation(metaclass=Operation):
     TOKEN = "STORE"
 
     def execute(self, arguments):
-        MEMORY.set_value(arguments[0], MEMORY.r.value)
+        MEMORY.set_value(MEMORY.r.value, arguments[0])
 
 
 class InitOperation(metaclass=Operation):
