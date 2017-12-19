@@ -20,6 +20,9 @@ InvitationASM has several additions compared to the language used in the books. 
 * Statement anchoring: No more re-counting and re-writing jumps every time you add a line somewhere. Just drop an ANCHOR before the statement and rest assured knowing that statement will always be at that memory address.
 * Extensions: Easily create and add your own operations by putting them in the extensions folder.
 
+## Declaring variables
+`name: .data initialvalue`
+
 ## Operations
 
 #### LOAD
