@@ -13,19 +13,24 @@ ARGUMENTS = re.compile(r"^\w+ (.+)$")
 
 
 def preprocess_code(data: List[str]) -> List[str]:
+    logger = logging.getLogger("Preprocessor")
     labels = {}
     data_offset = 1000
 
     new_code = []
 
     # Generate labels for data sections
+    logger.debug("Generating labels for data sections")
     for line in data:
         if DATA_LABEL.match(line):
+            logger.debug(f"\tLine {line} has data section")
             results = DATA_LABEL.findall(line)[0]
             labels[results[0]] = data_offset
+            logger.debug(f"\tInserting INIT statement: INIT {data_offset}, {results[1]}")
             new_code.insert(0, f"INIT {data_offset}, {results[1]}")
             data_offset += 1
         else:
+            logger.debug(f"\tLine {line} has no data section")
             new_code.append(line)
 
     data = new_code
@@ -34,16 +39,20 @@ def preprocess_code(data: List[str]) -> List[str]:
     data_length = len(labels)
 
     # Generate labels for code sections
+    logger.debug("Generating labels for code sections")
     for i, line in enumerate(data):
         if CODE_LABEL.match(line):
+            logger.debug(f"\tLine {line} has code label")
             labels[CODE_LABEL.findall(line)[0]] = i + 1 - len(labels) + data_length
         else:
+            logger.debug(f"\tLine {line} does not have a code label")
             new_code.append(line)
 
     data = new_code
     new_code = []
 
     # Replace all label references with memory addresses
+    logger.debug("Replacing label references")
     for line in data:
         operation = line.split(" ")[0]
         args = ARGUMENTS.findall(line)
@@ -55,7 +64,12 @@ def preprocess_code(data: List[str]) -> List[str]:
                     new_args.append(str(labels[arg]))
                 else:
                     new_args.append(arg)
-        new_code.append(operation + " " + ", ".join(new_args))
+        if len(new_args) != 0:
+            new_line = operation + " " + ", ".join(new_args)
+        else:
+            new_line = operation
+        new_code.append(new_line)
+        logger.debug(f"{line} -> {new_line}")
 
     return new_code
 
