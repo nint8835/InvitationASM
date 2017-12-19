@@ -31,6 +31,7 @@ class Parser(object):
 
     def __init__(self, log_level: int = logging.WARNING):
         self.logger = logging.getLogger("Parser")
+        self.labels = {}
         logging.basicConfig(format="{%(asctime)s} (%(name)s) [%(levelname)s]: %(message)s",
                             datefmt="%x, %X",
                             level=log_level)
@@ -100,4 +101,18 @@ class Parser(object):
             if statement is not None:
                 statements.append(statement)
 
+        return statements
+
+    def parse_list(self, lines: List[str]) -> List[Statement]:
+        """
+        Parses a list
+        :param lines: The list to parse
+        :return: The statements in the list
+        """
+
+        statements = []
+        for line in lines:
+            statement = self.parse_line(line)
+            if statement is not None:
+                statements.append(statement)
         return statements

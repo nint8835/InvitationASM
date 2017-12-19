@@ -1,0 +1,71 @@
+# Get the mode
+IN opentered
+# Get the first value
+IN valueone
+# Get the second value
+IN valuetwo
+
+# Load the mode
+LOAD opentered
+
+# Check for addition
+COMPARE addentry
+JUMPEQ doadd
+
+# Check for subtraction
+COMPARE subentry
+JUMPEQ dosub
+
+# Check for multiplication
+COMPARE mulentry
+JUMPEQ domul
+
+# Check for division
+COMPARE diventry
+JUMPEQ dodiv
+
+# If none match, exit
+JUMP exit
+
+# Perform addition
+doadd:
+LOAD valueone
+ADD valuetwo
+STORE result
+JUMP exit
+
+# Perform subtraction
+dosub:
+LOAD valueone
+SUBTRACT valuetwo
+STORE result
+JUMP exit
+
+# Perform multiplication
+domul:
+LOAD valueone
+MULTIPLY valuetwo
+STORE result
+JUMP exit
+
+# Perform division
+dodiv:
+LOAD valueone
+DIVIDE valuetwo
+STORE result
+JUMP exit
+
+# Output result
+exit:
+OUT result
+HALT
+
+# Define variables
+addentry: .data 1
+subentry: .data 2
+mulentry: .data 3
+diventry: .data 4
+opentered: .data 0
+valueone: .data 0
+valuetwo: .data 0
+result: .data 0
