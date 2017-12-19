@@ -69,7 +69,7 @@ def preprocess_code(data: List[str]) -> List[str]:
         else:
             new_line = operation
         new_code.append(new_line)
-        logger.debug(f"{line} -> {new_line}")
+        logger.debug(f"\t{line} -> {new_line}")
 
     return new_code
 
