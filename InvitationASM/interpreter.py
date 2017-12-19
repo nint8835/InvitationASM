@@ -17,6 +17,8 @@ def preprocess_code(data: List[str]) -> List[str]:
     labels = {}
     data_offset = 1000
 
+    data = [line for line in data if line != "" and not line.startswith("#")]
+
     new_code = []
 
     # Generate labels for data sections
